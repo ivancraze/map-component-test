@@ -6,7 +6,7 @@ import { Layout } from 'antd';
 import { Content } from 'antd/lib/layout/layout';
 
 interface IMcBaseLayoutProps {
-  children?: React.ReactNode;
+  children: React.ReactNode;
 }
 
 const McBaseLayout: React.FC<IMcBaseLayoutProps> = ({ children }) => {
