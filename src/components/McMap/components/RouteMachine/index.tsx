@@ -1,22 +1,48 @@
+import React, { useEffect } from 'react';
 import L from 'leaflet';
-import { createControlComponent } from '@react-leaflet/core';
+import { useMap } from 'react-leaflet';
+import { useSelector } from 'react-redux';
 
 import 'leaflet-routing-machine';
 import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
 
-const createRoute = () => {
-  L.Icon.Default.mergeOptions({
-    iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-    iconUrl: require('leaflet/dist/images/marker-icon.png'),
-    shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
-  });
+import { RootState } from '../../../../store';
+import { IClaim } from '../../../../types';
 
-  return L.Routing.control({
-    waypoints: [],
-    show: false,
-  });
+export const RoutingMachine: React.FC = () => {
+  const waypoints = useSelector<RootState, IClaim | undefined>(
+    (state: RootState) => state.main.selectedClaim,
+  );
+  const map = useMap();
+
+  useEffect(() => {
+    if (!waypoints) return;
+    if (!map) return;
+
+    const routingControl = L.Routing.control({
+      waypoints: [
+        L.latLng(
+          waypoints.arrivalPoint.coords.latitude,
+          waypoints.arrivalPoint.coords.longitude,
+        ),
+        L.latLng(
+          waypoints.departurePoint.coords.latitude,
+          waypoints.departurePoint.coords.longitude,
+        ),
+      ],
+      routeWhileDragging: false,
+      useZoomParameter: true,
+      addWaypoints: false,
+      fitSelectedRoutes: true,
+      showAlternatives: false,
+    }).addTo(map);
+
+    return () => {
+      map.removeControl(routingControl);
+    };
+  }, [waypoints]);
+
+  return null;
 };
-
-const RoutingMachine = createControlComponent(createRoute);
 
 export default RoutingMachine;
