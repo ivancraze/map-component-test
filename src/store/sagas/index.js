@@ -13,7 +13,7 @@ function* fetchRouteSelection(action) {
     departurePoint,
     arrivalPoint,
   );
-  //yield put(setSelectedClaimPolyline(res.data.routes[0].geometry.coordinates));
+  yield put(setSelectedClaimPolyline(res.data.routes[0].geometry.coordinates));
 }
 
 function* waitFetchRouteSelection() {
