@@ -1,6 +1,6 @@
 {
   "name": "map-component-test",
-  "homepage": "http://ivancraze.github.io/",
+  "homepage": "http://ivancraze.github.io/map-component-test",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -30,7 +30,7 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "craco docs",
+    "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
