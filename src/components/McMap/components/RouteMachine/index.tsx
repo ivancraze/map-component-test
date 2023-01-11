@@ -13,7 +13,9 @@ export const RoutingMachine: React.FC = () => {
   const waypoints = useSelector<RootState, IClaim | undefined>(
     (state: RootState) => state.main.selectedClaim,
   );
+
   const map = useMap();
+
   L.Icon.Default.mergeOptions({
     iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
     iconUrl: require('leaflet/dist/images/marker-icon.png'),
@@ -35,11 +37,26 @@ export const RoutingMachine: React.FC = () => {
           waypoints.departurePoint.coords.longitude,
         ),
       ],
+      router: new L.Routing.OSRMv1({
+        profile: 'driving',
+      }),
+      lineOptions: {
+        styles: [
+          {
+            color: '#DC143C',
+            opacity: 1,
+            weight: 5,
+          },
+        ],
+        extendToWaypoints: false,
+        missingRouteTolerance: 0,
+      },
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      draggableWaypoints: false,
       routeWhileDragging: false,
       useZoomParameter: true,
-      addWaypoints: false,
       fitSelectedRoutes: true,
-      showAlternatives: false,
     }).addTo(map);
 
     return () => {
