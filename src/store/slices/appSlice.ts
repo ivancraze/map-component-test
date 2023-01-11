@@ -105,7 +105,7 @@ export const appSlice = createSlice({
   initialState,
   reducers: {
     setSelectedClaim: (state, action) => {
-      state.isLoading = true;
+      //state.isLoading = true;
       state.selectedClaim = action.payload;
     },
     setSelectedClaimPolyline: (state, action) => {
