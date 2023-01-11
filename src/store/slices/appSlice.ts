@@ -58,6 +58,42 @@ const initialState: IInitialState = {
         },
       },
     },
+    {
+      id: 4,
+      name: 'Заявка №4',
+      departurePoint: {
+        name: 'г. Тамбов, ул. Гагарина, д 62',
+        coords: {
+          latitude: 59.84660399,
+          longitude: 30.29496392,
+        },
+      },
+      arrivalPoint: {
+        name: 'г. Самара, ул Вольская, д 30',
+        coords: {
+          latitude: 59.82761295,
+          longitude: 30.41705607,
+        },
+      },
+    },
+    {
+      id: 5,
+      name: 'Заявка №5',
+      departurePoint: {
+        name: 'г. Липецк, ул. Водопьянова, д 322',
+        coords: {
+          latitude: 59.83567701,
+          longitude: 30.38064206,
+        },
+      },
+      arrivalPoint: {
+        name: 'г. Уфа, ул Айская, д 5',
+        coords: {
+          latitude: 59.84660399,
+          longitude: 30.29496392,
+        },
+      },
+    },
   ],
   isLoading: false,
   selectedClaim: undefined,
@@ -69,10 +105,12 @@ export const appSlice = createSlice({
   initialState,
   reducers: {
     setSelectedClaim: (state, action) => {
+      state.isLoading = true;
       state.selectedClaim = action.payload;
     },
     setSelectedClaimPolyline: (state, action) => {
       state.selectedClaimPolyline = action.payload;
+      state.isLoading = false;
     },
   },
 });
