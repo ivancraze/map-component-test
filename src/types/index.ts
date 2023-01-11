@@ -18,7 +18,7 @@ export interface IClaim {
 
 export interface IInitialState {
   claims: IClaim[];
-  isLoading: false;
+  isLoading: boolean;
   selectedClaim: IClaim | undefined;
   selectedClaimPolyline: LatLngExpression[];
 }
