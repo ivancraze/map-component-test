@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/map-component-test/static/css/main.86fead88.css",
+    "main.js": "/map-component-test/static/js/main.8e1eed64.js",
+    "index.html": "/map-component-test/index.html",
+    "main.86fead88.css.map": "/map-component-test/static/css/main.86fead88.css.map",
+    "main.8e1eed64.js.map": "/map-component-test/static/js/main.8e1eed64.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.86fead88.css",
+    "static/js/main.8e1eed64.js"
+  ]
+}
