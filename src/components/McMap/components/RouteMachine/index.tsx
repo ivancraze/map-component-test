@@ -6,8 +6,8 @@ import { useSelector } from 'react-redux';
 import 'leaflet-routing-machine';
 import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
 
-import { RootState } from '../../../../store';
-import { IClaim } from '../../../../types';
+import { RootState } from '@app/store';
+import { IClaim } from '@app/types';
 
 export const RoutingMachine: React.FC = () => {
   const waypoints = useSelector<RootState, IClaim | undefined>(
@@ -51,6 +51,7 @@ export const RoutingMachine: React.FC = () => {
         extendToWaypoints: false,
         missingRouteTolerance: 0,
       },
+      // Нужно для запрета перетаскивания точек
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       draggableWaypoints: false,

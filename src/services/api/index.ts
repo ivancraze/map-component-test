@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-import { ROUTE_API_URL } from '../../constants';
-import { ICoordinates } from '../../types';
+import { ROUTE_API_URL } from '@app/constants';
+import { ICoordinates } from '@app/types';
 
 export default class ApiService {
   static async fetchPolyline(startPoint: ICoordinates, endPoint: ICoordinates) {
