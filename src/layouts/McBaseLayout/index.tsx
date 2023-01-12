@@ -6,7 +6,7 @@ import { Content } from 'antd/lib/layout/layout';
 
 import './index.less';
 
-import { RootState } from '../../store';
+import { RootState } from '@app/store';
 interface IMcBaseLayoutProps {
   children: React.ReactNode;
 }

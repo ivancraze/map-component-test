@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { IInitialState } from '../../types';
+import { IInitialState } from '@app/types';
 
 const initialState: IInitialState = {
   claims: [
