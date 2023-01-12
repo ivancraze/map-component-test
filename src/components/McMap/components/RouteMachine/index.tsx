@@ -51,6 +51,7 @@ export const RoutingMachine: React.FC = () => {
         extendToWaypoints: false,
         missingRouteTolerance: 0,
       },
+      // Нужно для запрета перетаскивания точек
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       draggableWaypoints: false,
